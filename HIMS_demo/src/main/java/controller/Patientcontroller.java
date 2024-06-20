@@ -16,20 +16,21 @@ import java.io.Serializable;
 @Named(value = "patientcontroller")
 @SessionScoped
 
-
 public class Patientcontroller implements Serializable {
 
     /**
      * Creates a new instance of Patientcontroller
      */
+    private Patient current;
 
-    private Patient current;   
     public Patientcontroller() {
-
-    }
-    public void AddNewPatient(){
         current = new Patient();
     }
+
+    public void AddNewPatient() {
+        
+    }
+
     /**
      * @return the current
      */
@@ -43,5 +44,14 @@ public class Patientcontroller implements Serializable {
     public void setCurrent(Patient current) {
         this.current = current;
     }
-    
+
+    public void save() {
+        System.out.println("{");
+        System.out.println("Name         : " + current.getName());
+        System.out.println("Address      : " + current.getAdress());
+        System.out.println("Phone Number : " + current.getPhoneNumber());
+        System.out.println("Year         : " + current.getAgInYear());
+        System.out.println("}");
+        current = new Patient();
+    }
 }
